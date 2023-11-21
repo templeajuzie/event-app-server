@@ -1,6 +1,8 @@
 const express = require("express");
 require("dotenv").config();
 const connectDb = require("./db/ConnectDb");
+const eventRouter = require("./routes/eventRoutes");
+const authRouter = require("./routes/authRoutes");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const port = process.env.PORT || 5000;
@@ -52,6 +54,9 @@ app.use((err, req, res, next) => {
     next(err);
   }
 });
+
+app.use("/api/v1/blog", eventRouter);
+app.use("/api/v1/auth", authRouter);
 
 
 app.set("view engine", "ejs");
