@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { StatusCodes } = require('http-status-codes');
 const User = require('../models/authSchema');
-const { VerifyToken } = require('../Helper/authToken');
+const { VerifyToken } = require('../helpers/authToken');
 const { UnAuthorizedError } = require('../errors');
 
 const secreteKey = process.env.JWT_SECRET;
